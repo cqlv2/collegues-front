@@ -4,11 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-
-
     "build":"ng build --prod --base-href https://cqlv2.github.io/collegues-front/",
-
-
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
