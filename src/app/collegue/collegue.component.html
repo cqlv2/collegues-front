@@ -1,0 +1,50 @@
+
+<div *ngIf="!collegues"class="">
+  <h3 class="text-center">selectionez un collegue</h3>
+</div>
+
+<div *ngIf="collegues"class="">
+  <div *ngIf="!collegues[0]"class="">
+    <h3 class="text-center">Aucun resultat</h3>
+  </div>
+</div>
+
+<div *ngIf="collegues"class="">
+  <div *ngFor="let collegue of collegues" class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <img class="float-left" width=100% src="{{collegue.photoUrl}}" alt="img">
+      </div>
+      <div class="col-xs-6">
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th scope="row">Matricule</th>
+              <td>{{collegue.matricule}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Nom prenom</th>
+              <td>{{collegue.nom}} {{collegue.prenom}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Date de naissance</th>
+              <td>{{collegue.dateNaissance | date:'d MMM y'}}</td>
+            </tr>
+            <tr>
+              <th scope="row">email</th>
+              <td>{{collegue.email}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 d-flex">
+        <p class='text-right'>
+          <button (click)="editUser()"type="button" class="btn btn-primary btn-space">Modifier</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

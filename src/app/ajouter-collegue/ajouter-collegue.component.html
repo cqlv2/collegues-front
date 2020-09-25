@@ -1,0 +1,29 @@
+<fieldset>
+  <legend>Ajouter un collegue</legend>
+  <table>
+    <tr>
+      <td><label for="nom"></label>Nom : </td>
+      <td><input name="a" class='form-control' id='nom' type="text" [(ngModel)]="newNom"></td>
+    </tr>
+    <tr>
+      <td><label for="prenom"></label>Prenom : </td>
+      <td><input name="b" class='form-control' id='prenom' type="text" [(ngModel)]="newPrenom"></td>
+    </tr>
+    <tr>
+      <td><label for="email"></label>Email : </td>
+      <td><input name="c" class='form-control' id='email' type="email" [(ngModel)]="newEmail"></td>
+    </tr>
+    <tr>
+      <td><label for="dateNaissance"></label>Date de naissance : </td>
+      <td><input name="z" class='form-control' id='dateNaissance' type="date" [(ngModel)]="newBirthDate"></td>
+    </tr>
+    <tr>
+      <td><label for="imgUrl"></label>Lien image :</td>
+      <td><input name="e" class='form-control' id='imgUrl' type="Imgurl" [(ngModel)]="newUrl"></td>
+    </tr>
+  </table>
+  <button (click)="ajouterCollegue()" class='btn btn-primary'>Ajouter</button>
+</fieldset>
+
+
+test : {{newNom}}

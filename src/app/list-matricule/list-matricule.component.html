@@ -1,0 +1,14 @@
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Matricule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let mat of matriculesList'>
+      <td (click)='afficherCollegue(mat)' >{{mat}}</td>
+    </tr>
+
+  </tbody>
+</table>

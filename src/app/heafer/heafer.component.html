@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+<h1>{{title}}</h1>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div style="margin-top:20px"class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="rechercheValue" placeholder="recherche">
+        </div>
+        <div class="form-group">
+          <select class="form-control custom-select" [(ngModel)]="typeRecherche" name="type">
+            <option selected value="nom">Par nom</option>
+            <option value="matricule">Par matricule</option>
+          </select>
+        </div>
+        <button (click)="recherche()"class="btn btn-primary mb-2">Rechercher</button>
+      </div>
+    </div>
+  </div>
+</div>

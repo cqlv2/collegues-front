@@ -1,0 +1,44 @@
+<p class='text-right'>
+  <button (click)="addUser()" type="button" class="btn btn-success btn-space"> + Ajouter</button>
+</p>
+<ul class='list-group'>
+  <li *ngFor='let user of listUser' class='list-group-item'>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <img class="float-left" width=250px src="{{user.photoUrl}}" alt="img">
+        </div>
+        <div class="col-xs-8">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th scope="row">Matricule</th>
+                <td>{{user.matricule}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Nom prenom</th>
+                <td>{{user.nom}} {{user.prenom}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Date de naissance</th>
+                <td>{{user.dateNaissance | date:'d MMM y'}}</td>
+              </tr>
+              <tr>
+                <th scope="row">email</th>
+                <td>{{user.email}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 d-flex">
+          <p class='text-right'>
+            <button (click)="editUser()"type="button" class="btn btn-primary btn-space">Modifier</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
