@@ -6,8 +6,9 @@ import { ListCollegueComponent } from './list-collegue/list-collegue.component'
 import{ HttpClientModule }from '@angular/common/http';
 import { ListMatriculeComponent } from './list-matricule/list-matricule.component';
 import { HeaferComponent } from './heafer/heafer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AjouterCollegueComponent } from './ajouter-collegue/ajouter-collegue.component';
+import { UrlValidatorDirective } from './validators/url-validator.directive';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { AjouterCollegueComponent } from './ajouter-collegue/ajouter-collegue.co
     ListCollegueComponent,
     ListMatriculeComponent,
     HeaferComponent,
-    AjouterCollegueComponent
+    AjouterCollegueComponent,
+    UrlValidatorDirective,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,19 +9,23 @@ import { DataService } from '../services/data.service';
 })
 export class ListMatriculeComponent implements OnInit {
 
-  matriculesList:any[]=[];
+   matriculesList:any[]=[];
 
   constructor(private collegueSvr:DataService) {
     this.collegueSvr.getMatricules()
     .subscribe(
-      value=>this.matriculesList=value,
+      value=>this.collegueSvr.sendMatriculeToSubject(value),
       error=>console.log("erreur : ",error),
       ()=>{}
     );
   }
 
   ngOnInit(): void {
-
+      this.collegueSvr.subscribToSubjectMatricule().subscribe(
+        value=>this.matriculesList=value,
+        error=>console.log("erreur : ",error),
+        ()=>console.log("fin de matricule")
+      );
   }
 
   afficherCollegue(matricule){

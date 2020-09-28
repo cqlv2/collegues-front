@@ -1,4 +1,6 @@
 
+
+
 <div *ngIf="!collegues"class="">
   <h3 class="text-center">selectionez un collegue</h3>
 </div>
@@ -12,9 +14,38 @@
 <div *ngIf="collegues"class="">
   <div *ngFor="let collegue of collegues" class="container">
     <div class="row">
+
+
+      <!-- gestion de l'image -->
       <div class="col-xs-3">
         <img class="float-left" width=100% src="{{collegue.photoUrl}}" alt="img">
+        <div *ngIf="!fieldImg">
+          <button (click)="editImg(collegue)" class="btn btn-primary btn-space">editer</button>
+        </div>
+        <div *ngIf="fieldImg">
+          <form (ngSubmit)="editerCollegue(collegue)" #formEditColl="ngForm">
+            <table>
+              <tr>
+                <td><label for="imgUrl"></label>Lien image :</td>
+                <td><input appUrlValidator required minlength="10" name="urlImg" class='form-control' id='imgUrl' type="url" [(ngModel)]="newUrl" #urlImg="ngModel" [ngModelOptions]="{updateOn: 'blur'}"></td>
+              </tr>
+              <tr>
+                <td>
+                  <div *ngIf="urlImg.invalid && urlImg.dirty" class="alert alert-danger">
+                    <div *ngIf="urlImg.errors.required">ce champ est obligatoire.</div>
+                    <div *ngIf="urlImg.errors.minlength">le champ dois faire minimum 10 caracteres.</div>
+                    <div *ngIf="urlImg.errors.urlInvalide">l'url doit commencer par http</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <button type="submit" class='btn btn-primary' [disabled]="!formAjourColl.form.valid">Ajouter</button>
+          </form>
+        </div>
       </div>
+
+
+
       <div class="col-xs-6">
         <table class="table table-hover">
           <tbody>
@@ -32,19 +63,26 @@
             </tr>
             <tr>
               <th scope="row">email</th>
-              <td>{{collegue.email}}</td>
-            </tr>
 
+              <td *ngIf="!fieldEmail">{{collegue.email}}</td>
+              <td *ngIf="fieldEmail">
+                <form (ngSubmit)="editerCollegue(collegue)" #formEditColl="ngForm">
+                  <input required minlength="3" name="email" class='form-control' id='email' type="email" [(ngModel)]="newEmail" #email="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+                  <button type="submit" class="btn btn-primary btn-space">Modifier</button>
+                </form>
+              </td>
+
+              <td *ngIf="!fieldEmail"><button (click)="editMail(collegue)" class="btn btn-primary btn-space">editer</button></td>
+
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 d-flex">
-        <p class='text-right'>
-          <button (click)="editUser()"type="button" class="btn btn-primary btn-space">Modifier</button>
-        </p>
-      </div>
-    </div>
+
+
+
+
+
   </div>
 </div>
